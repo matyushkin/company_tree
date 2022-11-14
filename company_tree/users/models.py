@@ -43,8 +43,8 @@ class Department(MPTTModel):
 
 
 class Employee(Model):
-    first_name = CharField(max_length=100)
     last_name = CharField(max_length=100)
+    first_name = CharField(max_length=100)
     patronic_name = CharField(max_length=100, null=True, blank=True)
     employment_date = DateField(auto_now_add=True)
     salary = DecimalField(max_digits=8, decimal_places=2)
