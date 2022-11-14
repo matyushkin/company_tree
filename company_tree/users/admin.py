@@ -2,8 +2,11 @@ from django.contrib import admin
 from django.contrib.auth import admin as auth_admin
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
+from mptt.admin import MPTTModelAdmin
 
 from company_tree.users.forms import UserAdminChangeForm, UserAdminCreationForm
+
+from .models import Department, Employee
 
 User = get_user_model()
 
@@ -32,3 +35,13 @@ class UserAdmin(auth_admin.UserAdmin):
     )
     list_display = ["username", "name", "is_superuser"]
     search_fields = ["name"]
+
+
+@admin.register(Department)
+class DepartmentAdmin(MPTTModelAdmin):
+    pass
+
+
+@admin.register(Employee)
+class EmployeeAdmin(admin.ModelAdmin):
+    pass
