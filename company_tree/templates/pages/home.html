@@ -15,11 +15,7 @@
     <div class="collapse" id="collapse{{ department.id }}">
         <div class="card card-body">
             <p class="h6 card-subtitle mb-2 text-muted">Сотрудники</p>
-            <ul class = "h6">
-                {% for employee in department.employee_set.all %}
-                    <li>{{ employee }}</li>
-                {% endfor %}
-            </ul>
+            <ul class = "h6"></ul>
         </div>
       {% for level in structure.closed_levels %}</div></li></ol>{% endfor %}
 {% endfor %}

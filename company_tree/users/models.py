@@ -57,6 +57,7 @@ class Employee(Model):
     first_name = CharField(max_length=100)
     patronic_name = CharField(max_length=100, null=True, blank=True)
     employment_date = DateField(auto_now_add=True)
+    employment_date.editable = True
     salary = DecimalField(max_digits=8, decimal_places=2)
     departments = ManyToManyField("Department")
 
