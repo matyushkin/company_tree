@@ -44,4 +44,11 @@ class DepartmentAdmin(MPTTModelAdmin):
 
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
-    pass
+    ordering = ["last_name"]
+    list_display = (
+        "last_name",
+        "first_name",
+        "patronic_name",
+        "employment_date",
+        "salary",
+    )

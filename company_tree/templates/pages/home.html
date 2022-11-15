@@ -13,9 +13,6 @@
     <li class="h{{ department.level|add:2 }}">
     <p class="h{{ department.level|add:2 }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ department.id }}" aria-expanded="false" aria-controls="collapse{{ department.id }}"> {{ department.name }} </p>
     <div class="collapse" id="collapse{{ department.id }}">
-        <!-- <div class="card card-body">
-            <ul class = "h6"></ul>
-        </div> -->
       {% for level in structure.closed_levels %}</div></li></ol>{% endfor %}
 {% endfor %}
 
