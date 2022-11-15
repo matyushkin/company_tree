@@ -22,15 +22,30 @@ departments.forEach((department) => {
             // department that hasn't opened before
             cur_dep_id = d
             socket.send(cur_dep_id)
-            console.log(cur_dep_id)
         }
     })
 })
 
+// update employer list of department
 function update_department(dep_id) {
     const department = document.getElementById(`collapse${dep_id}`)
-    const ul = department.querySelector(':scope > div > ul')
     if (dep_emp[dep_id].length!=0 && dep_id in dep_emp) {
+
+        // Create card with subtitle and ul for pushing data
+        const card = document.createElement('div')
+        card.classList.add('card', 'card-body')
+        department.prepend(card)
+
+        const p = document.createElement('p')
+        p.classList.add('h6', 'card-subtitle', 'mb-2', 'text-muted')
+        const s = document.createTextNode('Сотрудники')
+        p.appendChild(s)
+        card.appendChild(p)
+
+        const ul = document.createElement('ul')
+        ul.classList.add('h6')
+        card.appendChild(ul)
+
         for (const emp of dep_emp[dep_id]) {
             const li = document.createElement("li")
             const textnode = document.createTextNode(`${emp['last_name']} ${emp['first_name']} ${emp['patronic_name']}`)
@@ -40,7 +55,7 @@ function update_department(dep_id) {
     }
 }
 
-// for every messages from server
+// listen for every message from server
 socket.addEventListener('message', (event) => {
     json = event.data.toString()
     data = JSON.parse(json)
