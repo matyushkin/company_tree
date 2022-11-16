@@ -1,5 +1,4 @@
 import random
-import time
 from decimal import Decimal
 
 from company_tree.users.models import Department, Employee
@@ -77,6 +76,4 @@ def generate_employees():
 
 def run():
     generate_departments_tree()
-    print("Waiting untill department tree bulk processing will be finished...")
-    time.sleep(60)
     generate_employees()
