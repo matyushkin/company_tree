@@ -7,7 +7,7 @@ To start up:
 `docker-compose -f local.yml build`
 
 `docker-compose -f local.yml up`
-s
+
 To create django super user:
 
 `docker-compose -f local.yml run --rm django python manage.py createsuperuser`
